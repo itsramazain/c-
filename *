@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+void stars(int stars,int col){
+    int x=0,a=-1;
+    while (true){
+            a+=1;
+
+        if (a==stars){
+            break;
+        }
+        cout<<"*";
+        x+=1;
+        if (x==col){
+                x=0;
+            cout<<endl;
+        }
+    }
+
+
+}
+int main()
+{
+ stars(14,6);
+}
