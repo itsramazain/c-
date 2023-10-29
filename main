@@ -1,0 +1,44 @@
+public class code {
+    public static void main(String[] args){
+        bank account1=new bank();
+        bank account2=new bank();
+        InvertmentAcount account3=new InvertmentAcount();
+
+        account1.setOwnerName("rama");
+        account2.setOwnerName("hanaa");
+        account3.setOwnerName("shatha");
+
+        account1.setbalance(0);
+        account2.setbalance(0);
+        account3.setbalance(0);
+
+        account1.deposit(100);
+        account2.deposit(200);
+        account3.deposit(300);
+
+        account1.withdraw(100);
+        account2.withdraw(5);
+        account3.withdraw(400);
+        account3.setfees(10);
+
+        System.out.println("\n\n");
+        System.out.println(account1);
+        System.out.println("\n\n");
+        System.out.println(account2);
+        System.out.println("\n\n");
+        System.out.println(account3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
