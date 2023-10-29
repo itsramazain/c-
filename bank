@@ -1,0 +1,61 @@
+public class bank {
+    public double balance;
+    public String OwnerName;
+    public int accountNumber;
+    public static  int nextAccountNumber=1;
+    
+
+    public bank(){
+        accountNumber=nextAccountNumber;
+        nextAccountNumber++;
+        
+    }
+
+    public void deposit(double mony){
+        balance=balance+mony;
+    }
+
+    public void withdraw(double mony){
+        if (balance-mony>=0){
+            balance=balance-mony;
+            System.out.println( "valid operation ");
+        }
+        else {
+            System.out.println( "invalid operation ");
+        }
+    }
+
+
+
+    public String toString(){
+        return("this account is owned by:\t "+OwnerName+"\nwhich has:\t "+balance+"\nthat goes by the number:\t"+accountNumber);
+    }
+
+    public double getbalance(){
+        return balance;
+    }
+    public String getOwnerName(){
+        return OwnerName;
+    }
+
+    public int getaccountNumber(){
+        return accountNumber;
+    }
+
+    public void setbalance(double nre_value){
+         balance=nre_value;
+    }
+    public void setOwnerName(String nre_value){
+        OwnerName=nre_value;
+    }
+
+    public void setaccountNumber(int nre_value){
+        accountNumber=nre_value;
+    }
+
+
+
+
+
+
+}
