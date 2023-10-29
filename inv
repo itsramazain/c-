@@ -1,0 +1,19 @@
+public class InvertmentAcount extends bank{
+    
+
+    double fees;
+
+    @Override
+    public String toString(){
+        return super.toString()+"\nwith this amout of fees\t"+fees;
+    }
+
+    public double getfees(){
+        return fees;
+    }
+
+    public void setfees(double nre_value){
+        fees=nre_value;
+   }
+
+}
