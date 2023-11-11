@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(){
+    pid_t pid1=getpid();
+    printf("the parent id is %d \n",pid1);
+    
+    if (pid1%2!=0){
+        printf("the parent id is odd\n");
+
+    }
+    else{
+        printf("%d\n",getpid());
+        printf("its even two childs were created\n");
+        int i=fork();
+        
+        if (i==0){
+            printf("child 1 chiled id is %d, parent is %d\n",getpid(),getppid());
+        
+        }
+        else{
+            int i2=fork();
+            if (i2==0){
+                printf("child 2 chiled id is %d, parent is %d\n",getpid(),getppid());
+            }
+        }
+    }
+
+}
