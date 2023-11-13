@@ -1,0 +1,48 @@
+public class linkedlist<T> {
+    node<T>head;
+    node<T>tail;
+    int size=0;
+
+    public int size(){
+        return size;
+    }
+
+    public void insert(T data){
+        node<T> newNode = new node<>(data);
+        if (head==null){
+            head=newNode;
+        }else{
+            node<T> temp = head;
+            for (int i=0;i<size-1;i++){
+                temp=temp.next;
+            }
+            temp.next=newNode;
+
+            
+        }
+        size++;
+    }
+    public void delete(T data){
+        node<T> temp=head;
+       for (int i=0;i<size;i++){
+        if (temp.next.data==data){
+            temp.next=temp.next.next;
+            size--;
+            return;
+        }
+        temp=temp.next;
+       } 
+
+    }
+    public void display() {
+        node<T> temp=head;
+       for (int i=0;i<size;i++){
+        System.out.print(temp.data + " -> ");
+        temp=temp.next;
+       } 
+    }
+    
+
+
+
+}
