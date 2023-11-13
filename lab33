@@ -1,48 +1,26 @@
-public class linkedlist<T> {
-    node<T>head;
-    node<T>tail;
-    int size=0;
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-    public int size(){
-        return size;
-    }
-
-    public void insert(T data){
-        node<T> newNode = new node<>(data);
-        if (head==null){
-            head=newNode;
-        }else{
-            node<T> temp = head;
-            for (int i=0;i<size-1;i++){
-                temp=temp.next;
-            }
-            temp.next=newNode;
-
-            
+int main(){
+    printf("enter a number :");
+    int i;
+    int z=100;
+    scanf("%d",&i);
+    pid_t pid1=getpid();
+    printf("the parent id is %d\n",getpid());
+    for(int j=0;j<i;j++){
+        int idnow=getpid();
+        
+        if(idnow==pid1 && z!=0){
+            //this mean its the main parent
+            z=fork();
+            if(z==0){
+             printf("child %d chiled id is %d, parent is %d\n",j,getpid(),getppid());
         }
-        size++;
-    }
-    public void delete(T data){
-        node<T> temp=head;
-       for (int i=0;i<size;i++){
-        if (temp.next.data==data){
-            temp.next=temp.next.next;
-            size--;
-            return;
         }
-        temp=temp.next;
-       } 
-
     }
-    public void display() {
-        node<T> temp=head;
-       for (int i=0;i<size;i++){
-        System.out.print(temp.data + " -> ");
-        temp=temp.next;
-       } 
-    }
-    
-
-
-
+    sleep(1);
+    return 0;
 }
