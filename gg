@@ -1,0 +1,42 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/wait.h>
+#include<unistd.h>
+#include <pthread.h>
+void *fun1(void* n){
+    printf("EVEN EVEN");
+}
+
+void* fun2(){
+    printf("ODD ODD ODD");
+}
+
+int main(){
+   int in;
+
+    printf("enter an integer");
+    scanf("%d",&in);
+    printf("%d threads will be created",in);
+    int i=0;
+     pthread_t th[in]; 
+    for(i;i<in;i++){
+    if(i%2==0){
+        pthread_create(&th[i],NULL,fun1,NULL);
+        pthread_join(th[i],NULL);
+    }else{
+        pthread_create(&th[i],NULL,fun2,NULL);
+        pthread_join(th[i],NULL);
+    }
+  
+
+    }
+    
+    return 0;
+
+
+}
